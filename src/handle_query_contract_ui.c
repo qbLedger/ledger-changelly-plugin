@@ -31,7 +31,7 @@ static void set_receive_ui(ethQueryContractUI_t *msg, const context_t *context) 
     strlcpy(msg->title, "Receive Min.", msg->titleLength);
     // set network ticker (ETH, BNB, etc) if needed
     if (ADDRESS_IS_NETWORK_TOKEN(context->output_token)) {
-        strlcpy(context->output_ticker, msg->network_ticker, sizeof(context->output_ticker));
+        strlcpy((char *)context->output_ticker, msg->network_ticker, sizeof(context->output_ticker));
     }
 
     amountToString(context->min_output_amount,
